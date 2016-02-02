@@ -5,9 +5,9 @@
 I've tested the certificate creation commands only on Windows using the AWS CLI. I think they should work on the AWS CLI of other platforms.
 
 My python programs run perfectly on:
--Raspberry PI 2 with Raspbian Jessie and Python 2.7
--Debian Jessie virtual machine with Python 2.7
--Windows with Python 3.4 installed by Conda
+- Raspberry PI 2 with Raspbian Jessie and Python 2.7
+- Debian Jessie virtual machine with Python 2.7
+- Windows with Python 3.4 installed by Conda
 
 ## Create a thing, certifcate, keys and attaching them to enable usage of AWS IoT hub
 
@@ -45,9 +45,9 @@ aws iot attach-thing-principal --thing-name "myThingName" --principal "certifica
 ```
 ## How to test the sample Python programs
 
--open two console windows and enter in the first **awsiotsub.py** and in the second **awsiotpub.py**
--the second one will start sending random temperature values to the AWS IoT hub
--the first one will display them when received from the IoT hub
+- open two console windows and enter in the first **awsiotsub.py** and in the second **awsiotpub.py**
+- the second one will start sending random temperature values to the AWS IoT hub
+- the first one will display them when received from the IoT hub
 
 You can check the sources and modify the topics used by both programs to better fit your needs.
 Currently, **awsiotsub.py** subscribes to any topic and will show all of the received msgs.
