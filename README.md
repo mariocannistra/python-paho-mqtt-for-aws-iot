@@ -39,6 +39,11 @@ paste your **certificate-arn** inside the following command before entering it:
 ```
 aws iot attach-principal-policy --principal "certificate-arn" --policy-name "PubSubToAnyTopic"
 ```
+change the value of awshost using the returned value of "endpointAddress".
+```
+aws iot describe-endpoint
+```
+
 at this point my sample python programs ( **awsiotpub.py**  and  **awsiotsub.py** ) should run correctly but the AWS documentation specifies to also enter the following to attach the certificate to the thing:
 ```
 aws iot attach-thing-principal --thing-name "myThingName" --principal "certificate-arn"
