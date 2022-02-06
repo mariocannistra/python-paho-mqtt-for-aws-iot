@@ -3,11 +3,13 @@
 ## Platforms supported
 
 I've tested the certificate creation commands only on Windows using the AWS CLI. I think they should work on the AWS CLI of other platforms.
+If you need to AWS CLI set-up please check this link: [https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html]
 
-My python programs run perfectly on:
+This Python programs run perfectly on:
 - Raspberry PI 2 with Raspbian Jessie and Python 2.7
 - Debian Jessie virtual machine with Python 2.7
 - Windows with Python 3.4 installed by Conda
+- Ubuntu 20.04 with Python 3.8 installed by Conda
 
 ## Create a thing, certifcate, keys and attaching them to enable usage of AWS IoT hub
 
@@ -23,13 +25,13 @@ aws iot list-things
 ```
 create certificate and keys:
 ```
-aws iot create-keys-and-certificate --set-as-active --certificate-pem-outfile cert.pem --public-key-outfile publicKey.pem --private-key-outfile privkey.pem
+aws iot create-keys-and-certificate --set-as-active --certificate-pem-outfile myThingName.cert.pem --public-key-outfile myThingName.public.key --private-key-outfile myThingName.private.key
 ```
 take note of the **certificate-arn** in the output or, if you forgot to copy the **certificate-arn** you can get it listing the certificates with:
 ```
 aws iot list-certificates
 ```
-download root certificate from [this URL](https://www.symantec.com/content/en/us/enterprise/verisign/roots/VeriSign-Class%203-Public-Primary-Certification-Authority-G5.pem) using your browser and save it with filename: **aws-iot-rootCA.crt**
+Download root certificate from [this URL](https://www.amazontrust.com/repository/AmazonRootCA1.pem) using your browser and save it with filename: **AmazonRootCA1.pem**
 
 create a policy from the file provided:
 ```
